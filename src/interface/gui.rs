@@ -1,11 +1,16 @@
 use eframe::{App, CreationContext, Frame};
 use egui::{CentralPanel, Context, TopBottomPanel};
+use crate::interface::settings::SettingsDialog;
 
-pub struct SonusApp;
+pub struct SonusApp {
+    settings_dialog: SettingsDialog,
+}
 
 impl SonusApp {
     pub fn new(_cc: &CreationContext) -> Self {
-        Self
+        Self {
+            settings_dialog: SettingsDialog::default(),
+        }
     }
 }
 
@@ -25,6 +30,9 @@ impl App for SonusApp {
                 ui.menu_button("Edit", |ui| {
                     ui.add_enabled(false, egui::Button::new("Undo"));
                     ui.add_enabled(false, egui::Button::new("Redo"));
+                    if ui.button("Settings").clicked() {
+                        self.settings_dialog.open = true;
+                    }
                 });
 
                 ui.menu_button("View", |ui| {
@@ -37,6 +45,8 @@ impl App for SonusApp {
                 });
             });
         });
+
+        self.settings_dialog.show(ctx);
 
         CentralPanel::default().show(ctx, |ui| {
             ui.vertical_centered(|_ui| {

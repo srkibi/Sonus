@@ -18,3 +18,4 @@ tokio = { version = "1.0", features = ["full"] }
 env_logger = "0.10"
 dirs = "5.0"       # For finding config directory
 futures-executor = "0.3.31"
+image = "0.25.6"

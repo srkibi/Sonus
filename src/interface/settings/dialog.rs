@@ -80,10 +80,8 @@ impl SettingsDialog {
         }
 
         Window::new("Settings")
-            .resizable(false)
+            .resizable(true)
             .collapsible(false)
-            .default_size([600.0, 400.0])
-            .min_width(300.0)
             .show(ctx, |ui| {
                 ui.vertical(|ui| {
                     ui.horizontal(|ui| {
@@ -99,7 +97,7 @@ impl SettingsDialog {
 
                     ui.horizontal(|ui| {
                         ui.allocate_ui_with_layout(
-                            Vec2::new(150.0, ui.available_height()),
+                            Vec2::new(60.0, ui.available_height()),
                             egui::Layout::top_down(egui::Align::Min),
                             |ui| {
                                 self.show_categories(ui);
@@ -133,8 +131,8 @@ impl SettingsDialog {
     fn show_settings_panel(&mut self, ui: &mut Ui) {
         ScrollArea::vertical().id_source("scroll_settings_panel").show(ui, |ui| {
             match self.selected_category {
-                SettingsCategory::Updates => self.show_updates_panel(ui),
                 SettingsCategory::Audio => self.show_audio_panel(ui),
+                SettingsCategory::Updates => self.show_updates_panel(ui),
             }
         });
     }

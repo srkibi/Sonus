@@ -1,5 +1,6 @@
 use eframe::{App, CreationContext, Frame};
 use egui::{CentralPanel, Context, TopBottomPanel};
+
 use crate::interface::settings::SettingsDialog;
 
 pub struct SonusApp {
@@ -16,6 +17,9 @@ impl SonusApp {
 
 impl App for SonusApp {
     fn update(&mut self, ctx: &Context, _frame: &mut Frame) {
+        if let Some(cmd) = egui::ViewportCommand::center_on_screen(ctx) {
+            ctx.send_viewport_cmd(cmd);
+        }
         TopBottomPanel::top("menu_panel").show(ctx, |ui| {
             egui::menu::bar(ui, |ui| {
                 ui.menu_button("File", |ui| {

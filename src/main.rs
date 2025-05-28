@@ -1,6 +1,7 @@
 use anyhow::Result;
 use eframe::{App, Frame, NativeOptions, egui};
 use env_logger;
+use eframe::icon_data::from_png_bytes;
 
 use sonus::interface::gui::SonusApp;
 
@@ -38,11 +39,14 @@ impl App for SplashApp {
 fn main() -> Result<(), eframe::Error> {
     env_logger::init();
 
+    let icon_bytes: &'static [u8] = include_bytes!("assets/icons/logo_x64.png");
+
     let splash_options = NativeOptions {
         viewport: egui::ViewportBuilder::default()
             .with_inner_size([270.0, 400.0])
             .with_resizable(false)
             .with_decorations(false)
+            .with_icon(from_png_bytes(icon_bytes).unwrap())
             .with_title("Sonus - Loading"),
         default_theme: eframe::Theme::Dark,
         ..Default::default()
@@ -59,6 +63,7 @@ fn main() -> Result<(), eframe::Error> {
             .with_inner_size([1280.0, 720.0])
             .with_resizable(true)
             .with_decorations(true)
+            .with_icon(from_png_bytes(icon_bytes).unwrap())
             .with_title("Sonus"),
         default_theme: eframe::Theme::Dark,
         ..Default::default()

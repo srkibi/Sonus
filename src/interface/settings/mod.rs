@@ -4,7 +4,6 @@ use serde::{Deserialize, Serialize};
 use std::fs;
 use std::path::PathBuf;
 
-// States for managing settings
 #[derive(Serialize, Deserialize)]
 pub struct Settings {
     pub auto_update: bool,
@@ -58,7 +57,6 @@ impl Default for Settings {
     }
 }
 
-// Available settings categories
 #[derive(PartialEq)]
 pub enum SettingsCategory {
     Updates,

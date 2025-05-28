@@ -39,9 +39,8 @@ impl App for SonusApp {
         });
 
         CentralPanel::default().show(ctx, |ui| {
-            ui.vertical_centered(|ui| {
-                ui.heading("Sonus");
-                ui.label("Create or open a project to get started");
+            ui.vertical_centered(|_ui| {
+                
             });
         });
     }

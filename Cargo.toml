@@ -1,0 +1,11 @@
+[package]
+name = "sonus"
+version = "0.1.0"
+edition = "2025"
+description = "Sonus Digital Audio Workstation"
+
+[dependencies]
+eframe = "0.24.0"  # Framework for egui
+egui = "0.24.0"    # Immediate mode GUI library
+anyhow = "1.0"     # Error handling
+log = "0.4"        # Logging

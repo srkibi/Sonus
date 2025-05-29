@@ -2,8 +2,8 @@ import { app, BrowserWindow } from 'electron'
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1720,
-    height: 1080,
+    width: 1080,
+    height: 720,
     webPreferences: {
       nodeIntegration: true
     }

@@ -1,5 +1,0 @@
-/dist/
-/target/
-*.rs.d/
-*.rs.meta/
-Cargo.lock
